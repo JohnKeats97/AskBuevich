@@ -34,5 +34,19 @@ class Question(models.Model):
 		return u'{0} - {1}'.format(self.id, self.title)
 
 
+	
+
+class Answer(models.Model):
+	text = models.TextField()
+	author = models.ForeignKey(User)
+	created_at = models.DateTimeField(default=datetime.now)
+	question = models.ForeignKey(Question)
+	
+	#objects = AnswerManager()
+
+	def __unicode__(self):
+		return u'{0} - {1}'.format(self.id, self.text)
+
+
 class Tag(models.Model):
 	name = models.CharField(max_length=60)

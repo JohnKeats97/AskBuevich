@@ -31,4 +31,4 @@ class Command(BaseCommand):
 
       user_data.save()
 
-self.stdout.write('[%d] added user %s' % (user.id, user.username))
+#self.stdout.write('[%d] added user %s' % (user.id, user.username))

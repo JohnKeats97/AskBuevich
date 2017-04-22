@@ -8,6 +8,12 @@ class Profile(models.Model):
 	avatar = models.ImageField(upload_to="avatars/")
 	user = models.OneToOneField(User)
 	
+	def avatar_url(self):
+		if self.avatar and hasattr(self.avatar, 'url'):
+			return self.avatar.url
+		else:
+			return os.path.join(settings.MEDIA_URL, 'avatars', 'avatar.jpg')
+	
 class QuestionManager(models.Manager):
 
 	def best_questions(self):

@@ -7,8 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ask Buevich</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-	<link href="css/style.css" rel="stylesheet">
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/static/css/style.css" rel="stylesheet">
   </head>
   <body>
 	<nav class="navbar navbar-default">
@@ -16,8 +16,8 @@
 		<!-- Brand and toggle get grouped for better mobile display -->
 		<!-- Логотип -->
 		<div class="navbar-header">
-			<a href="#">
-				<img class="logo" src="./ask.jpg">
+			<a href="{% url 'index' %}">
+				<img class="logo" src="/static/ask.jpg">
 			</a>
 		</div>
 
@@ -25,8 +25,8 @@
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		  <!-- Кнопка ASK -->
 		  <ul class="nav navbar-nav">
-		  <a href="#"> <!-- Появляется подчеркивание ссылки ????-->
-		    <button type="button" class="btn btn-success" href="#">ASK</a></button>
+		  <a href="{% url 'ask' %}"> 
+		    <button type="button" class="btn btn-success" href="{% url 'ask' %}">ASK</button>
 		  </a>
 		  </ul>
 		  <!-- Поиск -->
@@ -49,13 +49,13 @@
 		  </ul>
 		  <!-- Аватарка -->
 		  <div class="navbar-header">
-		    <img class="avatar" src="./avatar.jpg">
+		    <img class="avatar" src="../static/avatar.jpg">
 		  </div>
 		  {% else %}
 		  <!-- Кпопки для не авторизованных пользователей -->
 		  <ul class="nav navbar-nav navbar-right">
-			<li><a href="#">Регистрация</a></li>
-			<li><a href="#">Вход</a></li>
+			<li><a href="{% url 'singup' %}">Регистрация</a></li>
+			<li><a href="{% url 'login' %}">Вход</a></li>
 		  </ul>
 		  {% endif %}
 		</div>
@@ -81,12 +81,12 @@
 				<!-- Популярные теги -->
 				<div class="popular-tags">
 					<h1> Popular Tags  </h1>
-					<a class="popular-tags" href="#">Tag1</a>
-					<a class="popular-tags" href="#">Tag2</a>
-					<a class="popular-tags" href="#">Tag3</a>
-					<a class="popular-tags" href="#">Tag4</a>
-					<a class="popular-tags" href="#">Tag5</a>
-					<a class="popular-tags" href="#">Tag6</a>			
+					<a class="popular-tags" href="{% url 'tag_john' %}">Tag1</a>
+					<a class="popular-tags" href="{% url 'tag_john' %}">Tag2</a>
+					<a class="popular-tags" href="{% url 'tag_john' %}">Tag3</a>
+					<a class="popular-tags" href="{% url 'tag_john' %}">Tag4</a>
+					<a class="popular-tags" href="{% url 'tag_john' %}">Tag5</a>
+					<a class="popular-tags" href="{% url 'tag_john' %}">Tag6</a>			
 				</div>
 				<!-- Популярные ответы -->
 				<div class="popular-massage">

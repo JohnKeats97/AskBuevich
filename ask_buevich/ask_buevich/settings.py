@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'ask_buevich',
 ]
 
 MIDDLEWARE = [
@@ -54,7 +55,7 @@ ROOT_URLCONF = 'ask_buevich.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['/home/john/TP/Web/Projects/ask_buevich/questions/templates'], 
+        'DIRS': ['/home/john/TP/Web/Projects/ask_buevich/templates'], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -66,6 +67,8 @@ TEMPLATES = [
         },
     },
 ]
+
+TEMPLATE_DEBUG = True
 
 WSGI_APPLICATION = 'ask_buevich.wsgi.application'
 
@@ -117,4 +120,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads"),
+MEDIA_URL = "/uploads/"
+
 STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]

@@ -9,31 +9,29 @@ Server Software:        nginx/1.10.0
 Server Hostname:        localhost
 Server Port:            80
 
-Document Path:          /avatar.jpg
-Document Length:        23813 bytes
+Document Path:          /static/
+Document Length:        178 bytes
 
 Concurrency Level:      10
-Time taken for tests:   0.683 seconds
+Time taken for tests:   0.459 seconds
 Complete requests:      10000
 Failed requests:        0
-Total transferred:      240590000 bytes
-HTML transferred:       238130000 bytes
-Requests per second:    14650.21 [#/sec] (mean)
-Time per request:       0.683 [ms] (mean)
-Time per request:       0.068 [ms] (mean, across all concurrent requests)
-Transfer rate:          344208.44 [Kbytes/sec] received
+Total transferred:      3370000 bytes
+HTML transferred:       1780000 bytes
+Requests per second:    21808.82 [#/sec] (mean)
+Time per request:       0.459 [ms] (mean)
+Time per request:       0.046 [ms] (mean, across all concurrent requests)
+Transfer rate:          7177.32 [Kbytes/sec] received
 
 Connection Times (ms)
               min  mean[+/-sd] median   max
 Connect:        0    0   0.1      0       0
-Processing:     0    1   0.1      0       2
-Waiting:        0    0   0.1      0       2
-Total:          0    1   0.1      1       2
-ERROR: The median and mean for the processing time are more than twice the standard
-       deviation apart. These results are NOT reliable.
+Processing:     0    0   0.1      0       1
+Waiting:        0    0   0.1      0       1
+Total:          0    0   0.1      0       1
 
 Percentage of the requests served within a certain time (ms)
-  50%      1
+  50%      0
   66%      1
   75%      1
   80%      1
@@ -41,4 +39,4 @@ Percentage of the requests served within a certain time (ms)
   95%      1
   98%      1
   99%      1
- 100%      2 (longest request)
+ 100%      1 (longest request)

@@ -1,0 +1,11 @@
+
+<!-- Популярные ответы -->
+				<div class="popular-massage">
+					<h1> Popular massage  </h1>
+					<ul>
+					{% for choice in choices %}
+					    <h4> <a class="popular-massage" href="{{ choice.get_url }}">{{ choice.title }}</a></h4>
+					{% endfor %}
+					</ul>			
+				</div>
+							

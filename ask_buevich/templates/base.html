@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 {% load static %}
+{% load sitebar %}
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -89,15 +90,7 @@
 					<a class="popular-tags" href="{% url 'tag_john' %}">Tag6</a>			
 				</div>
 				<!-- Популярные ответы -->
-				<div class="popular-massage">
-					<h1> Popular massage  </h1>
-					<h4> <a class="popular-massage" href="#">Dr. House</a></h4>
-					<h4> <a class="popular-massage" href="#">Dr. House</a></h4>
-					<h4> <a class="popular-massage" href="#">Dr. House</a></h4>
-					<h4> <a class="popular-massage" href="#">Dr. House</a></h4>
-					<h4> <a class="popular-massage" href="#">Dr. House</a></h4>
-					<h4> <a class="popular-massage" href="#">Dr. House</a></h4>		
-				</div>
+				{% best_questions %}
 			</div>
 	</div>
 	<div class="container">	

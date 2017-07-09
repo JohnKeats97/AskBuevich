@@ -5,6 +5,7 @@ from django.contrib import auth
 from django.contrib.auth.models import User
 from ask_buevich.models import Profile, Question, Answer, Tag
 
+
 class ArticleAddForm(forms.Form):
     title = forms.CharField(max_length=255, min_length=5)
     text = forms.CharField(label='Text')
@@ -25,6 +26,7 @@ class ArticleAddForm(forms.Form):
 
         return article
 
+
 class AnswerAddForm(forms.Form):
     text = forms.CharField(max_length=255, min_length=3)
 
@@ -32,19 +34,17 @@ class AnswerAddForm(forms.Form):
         self._user = user
         forms.Form.__init__(self, *args, **kwargs)
 
-
     def save(self):
-	answer = Answer()
-	answer.text = self.cleaned_data['text']
-	answer.created_at = datetime.datetime.now()
-	answer.rating = 0
-	answer.author = Profile.objects.all()[1]
-	
+        answer = Answer()
+        answer.text = self.cleaned_data['text']
+        answer.created_at = datetime.datetime.now()
+        answer.rating = 0
+        answer.author = Profile.objects.all()[1]
+
         answer.question = Question.objects.all()[1]
         answer.save()
 
         return answer
-
 
 
 class RegistrationForm(forms.Form):
@@ -81,7 +81,3 @@ class SignInForm(forms.Form):
         if not self._user:
             self.clean()
         return self._user
-
-
-
-

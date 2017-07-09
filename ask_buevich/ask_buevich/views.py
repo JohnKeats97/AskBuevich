@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render_to_response, redirect, render
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.shortcuts import get_object_or_404
 from django.contrib import auth
@@ -14,7 +14,7 @@ def index_view(request, *args, **kwargs):
     return pagination(request, 'index.html', articles,'articles', 10, *args, **kwargs)
 
 def tag_john_view(request, *args, **kwargs):
-    return render_to_response('tag.html', kwargs)
+    return render(request,'tag.html', kwargs)
 
 def answer_view(request, article_id, *args, **kwargs):
     article = Question.objects.get(id=article_id)
@@ -27,8 +27,12 @@ def answer_view(request, article_id, *args, **kwargs):
     answers = article.answer_set.all()
     return pagination(request, 'answer.html', answers, 'answers', 5, article=article, is_preview=False, form=form, *args, **kwargs)
 
+def logout_view(request, *args, **kwargs):
+    auth.logout(request)
+    return redirect('/')
+
 def login_view_render(request, *args, **kwargs):
-    return render_to_response('login.html', kwargs)
+    return render(request,'login.html', kwargs)
 
 def login_view(request, *args, **kwargs):
     if request.POST:
@@ -41,7 +45,7 @@ def login_view(request, *args, **kwargs):
     return login_view_render(request, form=form, *args, **kwargs)
 
 def singup_view_render(request, *args, **kwargs):
-    return render_to_response('singup.html', kwargs)
+    return render(request, 'singup.html', kwargs)
 
 def singup_view(request, *args, **kwargs):
     if request.POST:
@@ -54,7 +58,7 @@ def singup_view(request, *args, **kwargs):
     return singup_view_render(request, form=form, *args, **kwargs)
 
 def ask_view_render(request, *args, **kwargs):
-    return render_to_response('ask.html', kwargs)
+    return render(request, 'ask.html', kwargs)
 
 def ask_view(request, *args, **kwargs):
     if request.POST:
@@ -66,7 +70,7 @@ def ask_view(request, *args, **kwargs):
     return ask_view_render(request, form=form, *args, **kwargs)
 
 def settings_view(request, *args, **kwargs):
-    return render_to_response('settings.html', kwargs)
+    return render(request, 'settings.html', kwargs)
 
 def pagination(request, html_page, objects, object_name, objects_count, *args, **kwargs):
     paginator = Paginator(objects, objects_count)
@@ -82,6 +86,4 @@ def pagination(request, html_page, objects, object_name, objects_count, *args, *
     kwargs[object_name] = objects
     kwargs['pagination_list'] = objects
 
-    return render_to_response(html_page, kwargs)
-
-
+    return render(request,html_page, kwargs)

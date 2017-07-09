@@ -7,6 +7,7 @@ urlpatterns = [
     url(r'^question(?P<article_id>\d+)/', 'ask_buevich.views.answer_view', name='answer'),
     url(r'^login', 'ask_buevich.views.login_view', name='login'),
     url(r'^singup', 'ask_buevich.views.singup_view', name='singup'),
+    url(r'^logout/', 'ask_buevich.views.logout_view', name='logout'),
     url(r'^hot/', 'ask_buevich.views.index_view', name='hot'),
     url(r'^ask', 'ask_buevich.views.ask_view', name='ask'),
     url(r'^settings', 'ask_buevich.views.settings_view', name='settings'),

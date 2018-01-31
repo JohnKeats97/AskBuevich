@@ -11,10 +11,11 @@ from ask_buevich.models import Profile, Question, Answer, Tag
 
 def index_view(request, *args, **kwargs):
     articles = Question.objects.all()
-    return pagination(request, 'index.html', articles,'articles', 10, *args, **kwargs)
+    return pagination(request, 'index.html', articles, 'articles', 10, *args, **kwargs)
 
 def tag_john_view(request, *args, **kwargs):
-    return render(request,'tag.html', kwargs)
+    articles = []
+    return pagination(request, 'tag.html', articles, 'articles', 10, *args, **kwargs)
 
 def answer_view(request, article_id, *args, **kwargs):
     article = Question.objects.get(id=article_id)
@@ -86,4 +87,4 @@ def pagination(request, html_page, objects, object_name, objects_count, *args, *
     kwargs[object_name] = objects
     kwargs['pagination_list'] = objects
 
-    return render(request,html_page, kwargs)
+    return render(request, html_page, kwargs)

@@ -1,7 +1,7 @@
 			<div class="panel panel-default">
 				<img class="avatar-massage" align="left"  src="../../static/avatar.jpg">
-				<h3><a href="{% url 'answer' %}">How bla bla bla?</a></h3>
-				<p class="margin10">///</p>
+				<h3><a href="{{ article.get_url }}">Title</a></h3>
+				<p class="margin10">Text</p>
 				  <div class="panel-body">
 					  <!-- Лайк. Колличество. Дизлайк -->
 					  <span>
@@ -9,7 +9,7 @@
 							<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
 						</button>
 						<span>
-							<a>10</a>
+							<a>5</a>
 						</span>
 						<button type="button" class="btn btn-default" aria-label="Left Align">
 							<span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
